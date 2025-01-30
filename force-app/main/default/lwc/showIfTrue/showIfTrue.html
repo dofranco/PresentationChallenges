@@ -1,0 +1,7 @@
+<template>
+    <lightning-button label="Toggle Greeting" onclick={toggleGreetingVisibility}></lightning-button>
+
+    <template if:true={IsGreetingVisible}>
+        <c-hello-world></c-hello-world>
+    </template>
+</template>

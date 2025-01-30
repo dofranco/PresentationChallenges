@@ -1,0 +1,19 @@
+<template>
+    <!-- <lightning-card title={accountName}>
+        <div class="slds-m-around_medium">
+            <p>Annual Revenue: {accountAnnualRevenue}</p>
+        </div>
+    </lightning-card> -->
+    <lightning-card title={record.Name}>
+        <lightning-record-edit-form
+        object-api-name="Account"
+        record-id={record.Id}
+        onsuccess={handleEditSuccess}>
+        
+        <lightning-input-field field-name="Name"></lightning-input-field>
+        <lightning-input-field field-name="AnnualRevenue"></lightning-input-field>
+        <lightning-button type="submit" label="Save"></lightning-button>
+    </lightning-record-edit-form>
+        <span class="slds-button slds-button_neutral" onclick={deleteAccount} data-recordid={record.Id}>Delete</span>
+    </lightning-card>
+</template>

@@ -1,0 +1,37 @@
+<template>
+    <lightning-card title="Account List">
+        <lightning-record-edit-form
+        object-api-name={objectApiName}
+        onsuccess={refresh}>
+            <lightning-input-field field-name={accName}></lightning-input-field>
+            <lightning-input-field field-name={accAnnualRevenue}></lightning-input-field>
+            <lightning-button type="submit" label="Create Account"></lightning-button>
+        </lightning-record-edit-form>
+
+        <div class="slds-grid slds-warp">
+            <template for:each={accounts.data} for:item="account">
+                <div class="slds-col slds-size_1-of-3 slds-p-around_medium" key={account.Id}>
+                    <c-challenge-8-child
+                    record={account}
+                    onaccountdeleted={refresh}
+                    onaccountedited={refresh}>
+                    </c-challenge-8-child>
+                </div>
+            </template>
+        </div>
+        <!-- <template iterator:it={accounts.data}>
+            <c-challenge-8-child
+                key={it.value.id}
+                account-name={it.value.Name}
+                account-annual-revenue={it.value.AnnualRevenue}>
+            </c-challenge-8-child>
+
+            <c-challenge-8-child
+                key={it.value.id}
+                record={it.value}
+                onaccountdeleted={handleAccountDeleted}>
+            </c-challenge-8-child>
+
+        </template> -->
+    </lightning-card>
+</template>

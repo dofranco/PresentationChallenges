@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="To-Do List">
+        <div class="slds-m-around_medium">
+            <ul>
+                <template for:each={todoItems} for:item="todo">
+                    <li key={todo}>
+                        {todo} 
+                    </li>
+                </template>
+            </ul>
+            <br/>
+
+            <lightning-input label="New To-Do" ref="input"></lightning-input>
+
+            <lightning-button label="Add To-Do" onclick={handleAddTodo}></lightning-button>
+        </div>
+    </lightning-card>
+</template>
